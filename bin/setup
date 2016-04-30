@@ -1,0 +1,16 @@
+#!/bin/bash -e
+
+if [ ${ES_VERSION} ]; then
+        echo $ES_VERSION
+else
+        echo 2.3.2
+fi > $OPENSHIFT_ELASTICSEARCH_DIR/env/ES_VERSION
+
+if [ ${KIBANA_VERSION} ]; then
+        echo $KIBANA_VERSION
+else
+        echo 4.5.0
+fi > $OPENSHIFT_ELASTICSEARCH_DIR/env/KIBANA_VERSION
+
+echo $OPENSHIFT_REPO_DIR >> $OPENSHIFT_ELASTICSEARCH_DIR/env/ES_HOME
+echo $OPENSHIFT_DATA_DIR/elasticsearch-plugins/shield/* >> $OPENSHIFT_ELASTICSEARCH_DIR/env/ES_CLASSPATH

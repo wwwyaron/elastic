@@ -1,0 +1,11 @@
+---
+locked_files:
+- bin/
+- bin/*
+- env/
+- env/ELASTICSEARCH_VERSION
+- env/ELASTICSEARCH_PATH
+- hooks/
+- hooks/*
+processed_templates:
+- conf/*.erb
