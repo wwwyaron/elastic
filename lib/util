@@ -15,21 +15,21 @@ function _install_version()
 {
 	local VERSION=$1
 
-	if [ -d $OPENSHIFT_ELASTICSEARCH_DIR/usr ]; then
-		echo Removing old version $(<$OPENSHIFT_ELASTICSEARCH_DIR/usr/.version)
-		rm -rf $OPENSHIFT_ELASTICSEARCH_DIR/usr
-	fi
+	##if [ -d $OPENSHIFT_ELASTICSEARCH_DIR/usr ]; then
+	###	echo Removing old version $(<$OPENSHIFT_ELASTICSEARCH_DIR/usr/.version)
+	###	rm -rf $OPENSHIFT_ELASTICSEARCH_DIR/usr
+	##fi
 
+	##echo Downloading version $VERSION
+	#mkdir $OPENSHIFT_ELASTICSEARCH_DIR/usr
+	#curl -L -O https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.2/elasticsearch-2.3.2.tar.gz
+	#tar -xvf elasticsearch-2.3.2.tar.gz
+	#cd elasticsearch-2.3.2/bin
+	#./elasticsearch
+	
 	echo Downloading version $VERSION
 	mkdir $OPENSHIFT_ELASTICSEARCH_DIR/usr
-	curl -L -O https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.2/elasticsearch-2.3.2.tar.gz
-	tar -xvf elasticsearch-2.3.2.tar.gz
-	cd elasticsearch-2.3.2/bin
-	./elasticsearch
-	
-	#echo Downloading version $VERSION
-	#mkdir $OPENSHIFT_ELASTICSEARCH_DIR/usr
-	#https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.2/elasticsearch-2.3.2.tar.gz | tar xzf - --strip-components=1 -C $OPENSHIFT_ELASTICSEARCH_DIR/usr
+	curl https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.2/elasticsearch-2.3.2.tar.gz | tar xzf - --strip-components=1 -C $OPENSHIFT_ELASTICSEARCH_DIR/usr
 
 }
 
