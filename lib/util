@@ -20,16 +20,16 @@ function _install_version()
 	###	rm -rf $OPENSHIFT_ELASTICSEARCH_DIR/usr
 	##fi
 
-	echo Downloading version $VERSION
-	mkdir $OPENSHIFT_ELASTICSEARCH_DIR/tmp
-	curl -L -O https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.2/elasticsearch-2.3.2.tar.gz
-	tar -xvf elasticsearch-2.3.2.tar.gz
-	cd elasticsearch-2.3.2/bin
-	./elasticsearch
-	
 	#echo Downloading version $VERSION
 	#mkdir $OPENSHIFT_ELASTICSEARCH_DIR/tmp
-	#curl https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.2/elasticsearch-2.3.2.tar.gz | tar xzf - --strip-components=1 -C $OPENSHIFT_ELASTICSEARCH_DIR/tmp
+	#curl -L -O https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.2/elasticsearch-2.3.2.tar.gz
+	#tar -xvf elasticsearch-2.3.2.tar.gz
+	#cd elasticsearch-2.3.2/bin
+	#./elasticsearch
+	
+	echo Downloading version $VERSION
+	mkdir $OPENSHIFT_ELASTICSEARCH_DIR/usr
+	curl https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.2/elasticsearch-2.3.2.tar.gz | tar xzf - --strip-components=1 -C $OPENSHIFT_ELASTICSEARCH_DIR/usr
 
 }
 
